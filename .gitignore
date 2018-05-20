@@ -35,3 +35,9 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+bin/
+packages/
+.vs/
+obj/
+*.csproj.user
