@@ -3,6 +3,8 @@ using System.Web.Http;
 using Newtonsoft.Json.Serialization;
 using System.Net.Http.Formatting;
 using System.Linq;
+using WodServices.Services;
+using Unity;
 
 namespace wod_archive
 {
@@ -32,6 +34,14 @@ namespace wod_archive
                               StringComparison.InvariantCultureIgnoreCase,
                               true,
                               "application/json"));
+
+            //DI container
+            var container = new UnityContainer();
+            container.RegisterType<IWodService, WodService>();
+
+            
+            config.DependencyResolver = new UnityResolver(container);
+
         }
     }
 }
